@@ -7,3 +7,10 @@ for record in records:
     print (record.description)
     print(record.sequence)
     print (len(record.sequence))
+
+from biokit.features import gc_content, get_kmers
+
+for record in records:
+    print(record.seq_id, gc_content(record.sequence))
+
+print(get_kmers("ATCGAT", 3))
