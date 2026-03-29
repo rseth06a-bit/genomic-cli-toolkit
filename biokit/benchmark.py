@@ -11,13 +11,13 @@ def benchmark(num_sequences, k):
         nuc = 'ATGC'
         rand_strings.append(''.join(random.choices(nuc,k=100)))
     #now need to run sequentially and time
-    print ("Sequential Times")
+    print ("Sequential Time")
     start_time = time.perf_counter() #perf counter used for highly accurate times i think
     for sequence in rand_strings:
         gc_content(sequence)
     end_time = time.perf_counter()
     print(f"{end_time-start_time} seconds")
-    print ("Multiprocessing Times")
+    print ("Multiprocessing Time")
     start_time = time.perf_counter()
     with Pool() as pool:
         results = pool.map(gc_content, rand_strings) 

@@ -6,6 +6,7 @@ class FASTARecord:
     sequence: str
     description: str
 
+#returns array of each FASTARecord in the file
 def parse_fasta(filepath):
     """Parses through FASTA file"""
     with open(filepath, 'r') as file:
