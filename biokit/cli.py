@@ -29,5 +29,13 @@ def benchmark(num_sequences: int = 10000, k: int = 3):
     run_benchmark(num_sequences,k)
     pass
 
+@app.command()
+def kmers(filepath: str, k: int = 3):
+    """Shows the kmers of sequences in a FASTA file. Takes the number of sequences and k"""
+    seq_list = parse_fasta(filepath)
+    for record in seq_list:
+        print(f"{record.seq_id}: {get_kmers(record.sequence,k)} \n")
+    pass
+
 if __name__ == "__main__":
     app()
